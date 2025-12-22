@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Blog</title>
+  <title>Angela's Investment Thoughts</title>
   <meta name="description" content="A personal blog: essays, notes, and projects." />
   <style>
     :root{
@@ -229,16 +229,17 @@
         <a class="brand" href="#" id="homeBtn" aria-label="Go home">
           <div class="avatar" aria-hidden="true"></div>
           <div>
-            <h1 id="siteName">Your Name</h1>
-            <p id="siteTagline">Writing about ideas, projects, and life.</p>
+            <h1 id="siteName">Angela</h1>
+            <p id="siteTagline">Public equity ideas, earnings notes, and valuation frameworks.</p>
           </div>
         </a>
 
         <nav>
           <div class="chip active" data-filter="all">All</div>
-          <div class="chip" data-filter="essays">Essays</div>
-          <div class="chip" data-filter="notes">Notes</div>
-          <div class="chip" data-filter="projects">Projects</div>
+          <div class="chip" data-filter="ideas">Stock Ideas</div>
+          <div class="chip" data-filter="earnings">Earnings</div>
+          <div class="chip" data-filter="frameworks">Frameworks</div>
+          <div class="chip" data-filter="watchlist">Watchlist</div>
           <button class="btn" id="themeToggle" title="Toggle theme">☾ / ☀︎</button>
         </nav>
       </div>
@@ -249,13 +250,13 @@
     <section class="hero">
       <div class="row">
         <div>
-          <h2 id="heroTitle">Personal blog, clean + fast.</h2>
+          <h2 id="heroTitle">Public equity research notes + investment ideas.</h2>
           <p id="heroDesc">
-            A lightweight site you can host anywhere. Includes tags, search, featured posts, and an article view — all in one file.
+            Search for ticker name
           </p>
         </div>
         <div class="search">
-          <input class="input" id="searchInput" placeholder="Search posts (title, tags, text)..." />
+          <input class="input" id="searchInput" placeholder="Search by ticker, company, thesis, catalyst…" />
         </div>
       </div>
     </section>
@@ -266,27 +267,27 @@
 
       <!-- Sidebar -->
       <aside class="card sidebar">
-        <h4>Featured</h4>
+        <h4>Featured ideas</h4>
         <div class="list" id="featuredList"></div>
 
         <div style="height:14px"></div>
 
         <h4>About</h4>
         <p style="margin:0; color:var(--muted)">
-          Hi — I’m <span id="aboutName">Your Name</span>. I write about whatever I’m learning: investing, building, and thinking clearly.
+          Hi — I’m <span id="aboutName">Angela</span>. This is my public-equities notebook: investment theses, earnings reactions, and frameworks for valuing businesses. Nothing here is financial advice.
         </p>
 
         <div style="height:14px"></div>
 
         <h4>Links</h4>
         <div class="list">
-          <a class="linkrow" href="#" onclick="alert('Replace this with your actual link (e.g., https://github.com/yourname)')">
+          <a class="linkrow" href="https://github.com/angelaweng0903" target="_blank" rel="noreferrer">
             <span>GitHub</span><span class="kbd">↗</span>
           </a>
-          <a class="linkrow" href="#" onclick="alert('Replace this with your actual link (e.g., https://twitter.com/yourname)')">
+          <a class="linkrow" href="#" target="_blank" rel="noreferrer" title="Set your X link in index.html">
             <span>Twitter / X</span><span class="kbd">↗</span>
           </a>
-          <a class="linkrow" href="#" onclick="alert('Replace this with your email link (mailto:you@email.com)')">
+          <a class="linkrow" href="mailto:your@email.com" title="Set your email in index.html">
             <span>Email</span><span class="kbd">↗</span>
           </a>
         </div>
@@ -294,71 +295,119 @@
     </main>
 
     <div class="footer">
-      <span>© <span id="year"></span> <span id="footerName">Your Name</span></span>
-      <span>Built with plain HTML/CSS/JS • No framework</span>
+      <span>© <span id="year"></span> <span id="footerName">Angela</span></span>
+      <span> • Plain HTML/CSS/JS</span>
     </div>
   </div>
 
   <script>
     // ====== Customize quickly here ======
     const PROFILE = {
-      name: "Your Name",
-      tagline: "Writing about ideas, projects, and life.",
-      heroTitle: "Personal blog, clean + fast.",
-      heroDesc: "A lightweight site you can host anywhere. Includes tags, search, featured posts, and an article view — all in one file."
+      name: "Angela",
+      tagline: "Public equity ideas, earnings notes, and valuation frameworks.",
+      heroTitle: "Public equity research notes + investment ideas.",
+      heroDesc: "Search by ticker name"
     };
 
     // ====== Sample posts (edit / add your own) ======
     const POSTS = [
       {
-        id: "welcome",
-        title: "Welcome — what this blog is",
+        id: "how-to-read-a-10k",
+        title: "How I read a 10-K for a public equity idea",
         date: "2025-12-22",
-        category: "essays",
-        tags: ["meta", "writing"],
+        category: "frameworks",
+        tags: ["10-K", "process", "checklist"],
         featured: true,
-        excerpt: "A short note on what I’m building here and how I’ll use it.",
+        excerpt: "A repeatable checklist: what I look for, what I skip, and how I turn filings into an investable view.",
         content: `
-          <p>This is a simple personal blog template you can deploy anywhere. It’s intentionally minimal: fast, readable, and easy to edit.</p>
-          <p>I’ll post <strong>essays</strong> when I have a full idea, <strong>notes</strong> when I’m learning, and <strong>projects</strong> when I build something.</p>
-          <pre><code>// Tip: edit POSTS in the HTML file
-// Add new posts, tags, and categories — done.</code></pre>
+          <p>This blog is focused on <strong>public equities</strong>: business quality, valuation, and what the market is missing.</p>
+          <p>My 10‑K workflow is simple:</p>
+          <ol>
+            <li><strong>Business model</strong>: how it makes money, unit economics, and pricing power.</li>
+            <li><strong>Segment + geography</strong>: where growth/profit actually comes from.</li>
+            <li><strong>Risks</strong>: what could break the thesis (customer concentration, regulation, cycles).</li>
+            <li><strong>Numbers</strong>: revenue bridge, margins, cash conversion, SBC, and balance sheet.</li>
+            <li><strong>What’s mispriced</strong>: variant view + timing (catalyst / slope of change).</li>
+          </ol>
+          <p><em>Not financial advice — just how I think.</em></p>
         `
       },
       {
-        id: "systems",
-        title: "Notes on building systems that compound",
-        date: "2025-12-10",
-        category: "notes",
-        tags: ["systems", "learning"],
+        id: "idea-template",
+        title: "Template: one-page stock idea (ticker-first)",
+        date: "2025-12-18",
+        category: "frameworks",
+        tags: ["template", "thesis", "valuation"],
         featured: true,
-        excerpt: "Small loops, tight feedback, and writing things down.",
+        excerpt: "A clean structure for writing up a long/short idea: thesis, variant view, catalysts, valuation, and key risks.",
         content: `
-          <p>Compounding isn’t just money — it’s habits and feedback loops.</p>
-          <p>My default system:</p>
+          <p>When I write an idea, I force it into one page:</p>
           <ul>
-            <li>Track inputs (time, reps), not just outcomes.</li>
-            <li>Write short reflections after each work block.</li>
-            <li>Ship small artifacts (notes, drafts, prototypes).</li>
+            <li><strong>Ticker / Company</strong>: what it does in one sentence</li>
+            <li><strong>Thesis</strong>: 2–3 bullets</li>
+            <li><strong>What’s mispriced</strong>: the market’s current narrative vs my view</li>
+            <li><strong>Catalysts</strong>: what changes minds (and when)</li>
+            <li><strong>Valuation</strong>: comps + a simple DCF sanity check</li>
+            <li><strong>Bear case</strong>: what would make me wrong</li>
+          </ul>
+          <pre><code>TICKER: 
+Thesis:
+Mispricing:
+Catalysts:
+Valuation:
+Key risks:</code></pre>
+        `
+      },
+      {
+        id: "earnings-reaction-example",
+        title: "Earnings notes: how I write a post in 15 minutes",
+        date: "2025-12-12",
+        category: "earnings",
+        tags: ["earnings", "guidance", "margin"],
+        featured: false,
+        excerpt: "A quick format for digesting prints: what mattered, what changed, and what I’m watching next quarter.",
+        content: `
+          <p>My earnings note structure:</p>
+          <ol>
+            <li><strong>Headline</strong>: beat/miss + guide up/down</li>
+            <li><strong>Drivers</strong>: revenue vs margin vs mix</li>
+            <li><strong>Forward</strong>: what changed in the next 2 quarters</li>
+            <li><strong>Stock reaction</strong>: why the market moved</li>
+            <li><strong>Next check</strong>: what data point will confirm/deny</li>
+          </ol>
+        `
+      },
+      {
+        id: "watchlist-setup",
+        title: "Watchlist: names I’m tracking and why",
+        date: "2025-11-28",
+        category: "watchlist",
+        tags: ["watchlist", "catalyst", "setup"],
+        featured: false,
+        excerpt: "A living list of companies to track, with one-liner setups and the key KPI/catalyst for each.",
+        content: `
+          <p>This is where I keep quick setups. The goal isn’t breadth — it’s to know <em>exactly</em> what I’m waiting for.</p>
+          <ul>
+            <li><strong>TICKER</strong> — setup + KPI + catalyst window</li>
+            <li><strong>TICKER</strong> — setup + KPI + catalyst window</li>
           </ul>
         `
       },
       {
-        id: "project-01",
-        title: "Project: a tiny research assistant",
-        date: "2025-11-28",
-        category: "projects",
-        tags: ["ai", "tools", "rag"],
+        id: "sample-stock-idea",
+        title: "Stock idea example: (TICKER) — variant view + catalysts",
+        date: "2025-11-10",
+        category: "ideas",
+        tags: ["long", "catalyst", "multiple"],
         featured: false,
-        excerpt: "An experiment turning PDFs + transcripts into answers with citations.",
+        excerpt: "Replace this with a real name: thesis, why now, and a simple valuation range.",
         content: `
-          <p>I’m building a small research assistant that ingests PDFs and transcripts, then answers questions with citations.</p>
-          <p>Next steps:</p>
-          <ol>
-            <li>Chunking + embeddings</li>
-            <li>Retriever evals</li>
-            <li>UI polish</li>
-          </ol>
+          <p><strong>Ticker:</strong> (fill in)</p>
+          <p><strong>Thesis:</strong> (2–3 bullets)</p>
+          <p><strong>Variant view:</strong> what the market believes vs what I believe</p>
+          <p><strong>Why now:</strong> catalysts and timing</p>
+          <p><strong>Valuation:</strong> comps (EV/EBITDA, P/E) + quick DCF sanity check</p>
+          <p><strong>Key risks:</strong> what breaks the idea</p>
         `
       }
     ];
@@ -414,7 +463,7 @@
       main.innerHTML = `
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
           <div>
-            <h3 style="margin:0; font-size:16px">Latest</h3>
+            <h3 style="margin:0; font-size:16px">Latest posts</h3>
             <div class="meta" style="margin-top:6px">
               <span>${list.length} post${list.length===1?"":"s"}</span>
               <span>•</span>
@@ -423,7 +472,7 @@
             </div>
           </div>
           <div class="meta">
-            <span class="kbd">Tip: click tags to filter</span>
+            <span class="kbd">Tip: search tickers or click tags</span>
           </div>
         </div>
 
