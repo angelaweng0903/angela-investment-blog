@@ -36,18 +36,34 @@
       margin:0;
       font-family:var(--sans);
       background:
-        /* subtle chart grid */
-        linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px),
-        /* soft market-style glow accents */
-        radial-gradient(1200px 600px at 15% -10%, rgba(125,211,252,.16), transparent 60%),
-        radial-gradient(900px 500px at 95% 0%, rgba(167,139,250,.18), transparent 55%),
+        radial-gradient(1200px 700px at 10% -15%, rgba(125,211,252,.16), transparent 60%),
+        radial-gradient(900px 600px at 95% -10%, rgba(167,139,250,.16), transparent 55%),
+        radial-gradient(1200px 900px at 50% 120%, rgba(16,185,129,.08), transparent 55%),
         var(--bg);
-      background-size: 90px 90px, 90px 90px, auto, auto, auto;
-      background-position: 0 0, 0 0, center, center, center;
       color:var(--text);
       line-height:1.6;
     }
+    /* Futuristic finance-style frame overlay (kept away from the main reading area) */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px),
+        radial-gradient(900px 600px at 15% 10%, rgba(125,211,252,.10), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(167,139,250,.10), transparent 60%);
+      background-size: 110px 110px, 110px 110px, auto, auto;
+      opacity:.9;
+      /* Hide overlay in the center (where the content sits), show more on the edges */
+      -webkit-mask-image: radial-gradient(ellipse at center, transparent 0 48%, rgba(0,0,0,.85) 72%, #000 100%);
+      mask-image: radial-gradient(ellipse at center, transparent 0 48%, rgba(0,0,0,.85) 72%, #000 100%);
+    }
+
+    /* ensure page content is above the overlay */
+    header, .container{ position:relative; z-index:1; }
     a{color:inherit; text-decoration:none}
     .container{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
     header{
@@ -241,13 +257,22 @@
 
     [data-theme="light"] body{
       background:
-        linear-gradient(to right, rgba(10,18,32,.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(10,18,32,.06) 1px, transparent 1px),
-        radial-gradient(1200px 600px at 15% -10%, rgba(2,132,199,.10), transparent 60%),
-        radial-gradient(900px 500px at 95% 0%, rgba(109,40,217,.10), transparent 55%),
+        radial-gradient(1200px 700px at 10% -15%, rgba(2,132,199,.10), transparent 60%),
+        radial-gradient(900px 600px at 95% -10%, rgba(109,40,217,.10), transparent 55%),
+        radial-gradient(1200px 900px at 50% 120%, rgba(5,150,105,.06), transparent 55%),
         var(--bg);
-      background-size: 90px 90px, 90px 90px, auto, auto, auto;
-      background-position: 0 0, 0 0, center, center, center;
+    }
+
+    [data-theme="light"] body::before{
+      background:
+        linear-gradient(to right, rgba(10,18,32,.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(10,18,32,.05) 1px, transparent 1px),
+        radial-gradient(900px 600px at 15% 10%, rgba(2,132,199,.08), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(109,40,217,.08), transparent 60%);
+      background-size: 110px 110px, 110px 110px, auto, auto;
+      opacity:1;
+      -webkit-mask-image: radial-gradient(ellipse at center, transparent 0 50%, rgba(0,0,0,.85) 72%, #000 100%);
+      mask-image: radial-gradient(ellipse at center, transparent 0 50%, rgba(0,0,0,.85) 72%, #000 100%);
     }
   </style>
 </head>
