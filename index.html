@@ -35,9 +35,16 @@
     body{
       margin:0;
       font-family:var(--sans);
-      background: radial-gradient(1200px 600px at 15% -10%, rgba(125,211,252,.16), transparent 60%),
-                  radial-gradient(900px 500px at 95% 0%, rgba(167,139,250,.18), transparent 55%),
-                  var(--bg);
+      background:
+        /* subtle chart grid */
+        linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px),
+        /* soft market-style glow accents */
+        radial-gradient(1200px 600px at 15% -10%, rgba(125,211,252,.16), transparent 60%),
+        radial-gradient(900px 500px at 95% 0%, rgba(167,139,250,.18), transparent 55%),
+        var(--bg);
+      background-size: 90px 90px, 90px 90px, auto, auto, auto;
+      background-position: 0 0, 0 0, center, center, center;
       color:var(--text);
       line-height:1.6;
     }
@@ -231,6 +238,17 @@
       overflow:auto;
     }
     [data-theme="light"] pre{background: rgba(10,18,32,.04)}
+
+    [data-theme="light"] body{
+      background:
+        linear-gradient(to right, rgba(10,18,32,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(10,18,32,.06) 1px, transparent 1px),
+        radial-gradient(1200px 600px at 15% -10%, rgba(2,132,199,.10), transparent 60%),
+        radial-gradient(900px 500px at 95% 0%, rgba(109,40,217,.10), transparent 55%),
+        var(--bg);
+      background-size: 90px 90px, 90px 90px, auto, auto, auto;
+      background-position: 0 0, 0 0, center, center, center;
+    }
   </style>
 </head>
 
