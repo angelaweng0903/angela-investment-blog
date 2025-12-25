@@ -344,6 +344,7 @@
           tags: Array.isArray(p.tags) ? p.tags : [],
           featured: !!p.featured,
           excerpt: p.excerpt || "",
+          searchText: p.searchText || "",
           // content can be inline OR loaded from a file
           content: p.content || null,
           contentPath: p.contentPath || null
@@ -392,7 +393,10 @@
       if (!inFilter) return false;
       if (!q) return true;
       const hay = [
-        post.title, post.excerpt || "", (post.tags || []).join(" "),
+        post.title,
+        post.excerpt || "",
+        post.searchText || "",
+        (post.tags || []).join(" "),
         (post.content || "").replace(/<[^>]*>/g, " ")
       ].join(" ").toLowerCase();
       return hay.includes(q);

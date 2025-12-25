@@ -8,5 +8,18 @@
     "featured": true,
     "excerpt": "Procore is building the system of record for construction. The opportunity is expanding beyond project management into a broader platform — with operating leverage as margins normalize.",
     "contentPath": "posts/pcor-procore-investment-idea.html"
+  },
+
+  {
+    "id": "saf-pa",
+    "title": "SAF.PA (Safran) — investment idea",
+    "date": "2025-12-25",
+    "category": "ideas",
+    "tags": ["SAF.PA", "Safran", "Aerospace", "long"],
+    "featured": false,
+    "excerpt": "Safran is a high-quality aerospace supplier with attractive aftermarket economics and long-duration demand tailwinds. Here’s the bull/base/bear framing and what I’m watching.",
+    "searchText": "SAF.PA Safran aerospace engines LEAP aftermarket spares MRO cycle Airbus Boeing",
+    "contentPath": "posts/saf-pa.html"
   }
 ]
+
