@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Angela's Investment Thoughts</title>
-  <meta name="description" content="A personal blog: essays, notes, and projects." />
+  <meta name="description" content="Public equity ideas, earnings notes, and valuation frameworks." />
   <style>
     :root{
       --bg:#0b0f14;
@@ -199,7 +199,19 @@
     .article h1{margin:0 0 8px; font-size:28px; letter-spacing:-.02em}
     .article .content{margin-top:14px; color:var(--text)}
     .article .content p{margin:12px 0; color: rgba(230,237,243,.92)}
+    .article .content img{
+      max-width:100%;
+      height:auto;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+      display:block;
+      margin:14px 0;
+    }
+    .article .content figure{margin:14px 0}
+    .article .content figcaption{color:var(--muted); font-size:13px; margin-top:8px}
     [data-theme="light"] .article .content p{color: rgba(11,18,32,.92)}
+    [data-theme="light"] .article .content img{box-shadow: 0 10px 25px rgba(10,18,32,.10)}
     .back{
       display:inline-flex; align-items:center; gap:8px;
       cursor:pointer; color:var(--muted);
@@ -309,135 +321,55 @@
       heroDesc: "Search by ticker name"
     };
 
-    // ====== Sample posts (edit / add your own) ======
-    const POSTS = [
-      {
-        id: "pcor-procore-investment-idea",
-        title: "PCOR (Procore) — investment idea",
-        date: "2025-12-22",
-        category: "ideas",
-        tags: ["PCOR", "SaaS", "construction", "long"],
-        featured: true,
-        excerpt: "Procore is building the system of record for construction. The opportunity is expanding beyond project management into a broader, sticky operating platform — with operating leverage as margins normalize.",
-        content: `
-          <p><strong>Ticker:</strong> PCOR</p>
-          <p><strong>Company:</strong> Procore Technologies — cloud software for construction project management, collaboration, and financial workflows.</p>
+    // ====== Posts live in separate files (GitHub Pages friendly) ======
+    // Create `posts/index.json` with metadata, and `posts/<id>.html` (or any path) with the post HTML.
+    // This keeps the homepage lightweight and makes writing/editing posts easier.
 
-          <h3>Thesis</h3>
-          <ul>
-            <li><strong>System of record:</strong> Procore sits at the center of day-to-day construction workflows (GCs, subs, owners). That positioning creates high switching costs and a natural wedge into adjacent modules.</li>
-            <li><strong>Category expansion:</strong> The long-term value is not just project management — it’s owning the end-to-end operating layer (planning → execution → financials → analytics), increasing ARPU over time.</li>
-            <li><strong>Operating leverage:</strong> As growth stabilizes, the model should show clearer margin expansion via S&amp;M efficiency and scale in R&amp;D/G&amp;A.</li>
-          </ul>
+    let POSTS = [];
 
-          <h3>What I think the market is missing</h3>
-          <ul>
-            <li><strong>Durability in a choppy cycle:</strong> Construction is cyclical, but Procore’s ROI (rework reduction, schedule coordination, documentation) makes it one of the last software lines to get cut.</li>
-            <li><strong>Multi-product compounding:</strong> A “module-by-module” view can understate lifetime value. The better framing is platform adoption across a contractor’s portfolio.</li>
-          </ul>
-
-          <h3>Catalysts / What to watch</h3>
-          <ul>
-            <li><strong>Attach rate:</strong> evidence that customers are adopting multiple products/modules over time.</li>
-            <li><strong>Net retention:</strong> stabilization or improvement as expansions offset macro headwinds.</li>
-            <li><strong>Margin trajectory:</strong> consistent improvement in operating margin and free cash flow margin.</li>
-          </ul>
-
-          <h3>Valuation notes (high level)</h3>
-          <ul>
-            <li>Anchor on <strong>EV/Revenue</strong> vs high-quality vertical SaaS peers, then sanity-check with a path to mid-teens/20%+ operating margins over time.</li>
-            <li>I care less about near-term GAAP noise and more about <strong>FCF conversion</strong> and the long-run margin profile.</li>
-          </ul>
-
-          <h3>Key risks</h3>
-          <ul>
-            <li><strong>Macro sensitivity:</strong> a deeper construction slowdown could pressure new logo growth and expansions.</li>
-            <li><strong>Competition:</strong> incumbents or point solutions could compress pricing or slow expansion.</li>
-            <li><strong>Execution:</strong> missteps in moving upmarket or integrating new workflows could reduce platform pull-through.</li>
-          </ul>
-
-          <p><em>Nothing here is financial advice — just my own research notes.</em></p>
-        `
-      },
-      {
-        id: "idea-template",
-        title: "Template: one-page stock idea (ticker-first)",
-        date: "2025-12-18",
-        category: "frameworks",
-        tags: ["template", "thesis", "valuation"],
-        featured: true,
-        excerpt: "A clean structure for writing up a long/short idea: thesis, variant view, catalysts, valuation, and key risks.",
-        content: `
-          <p>When I write an idea, I force it into one page:</p>
-          <ul>
-            <li><strong>Ticker / Company</strong>: what it does in one sentence</li>
-            <li><strong>Thesis</strong>: 2–3 bullets</li>
-            <li><strong>What’s mispriced</strong>: the market’s current narrative vs my view</li>
-            <li><strong>Catalysts</strong>: what changes minds (and when)</li>
-            <li><strong>Valuation</strong>: comps + a simple DCF sanity check</li>
-            <li><strong>Bear case</strong>: what would make me wrong</li>
-          </ul>
-          <pre><code>TICKER: 
-Thesis:
-Mispricing:
-Catalysts:
-Valuation:
-Key risks:</code></pre>
-        `
-      },
-      {
-        id: "earnings-reaction-example",
-        title: "Earnings notes: how I write a post in 15 minutes",
-        date: "2025-12-12",
-        category: "earnings",
-        tags: ["earnings", "guidance", "margin"],
-        featured: false,
-        excerpt: "A quick format for digesting prints: what mattered, what changed, and what I’m watching next quarter.",
-        content: `
-          <p>My earnings note structure:</p>
-          <ol>
-            <li><strong>Headline</strong>: beat/miss + guide up/down</li>
-            <li><strong>Drivers</strong>: revenue vs margin vs mix</li>
-            <li><strong>Forward</strong>: what changed in the next 2 quarters</li>
-            <li><strong>Stock reaction</strong>: why the market moved</li>
-            <li><strong>Next check</strong>: what data point will confirm/deny</li>
-          </ol>
-        `
-      },
-      {
-        id: "watchlist-setup",
-        title: "Watchlist: names I’m tracking and why",
-        date: "2025-11-28",
-        category: "watchlist",
-        tags: ["watchlist", "catalyst", "setup"],
-        featured: false,
-        excerpt: "A living list of companies to track, with one-liner setups and the key KPI/catalyst for each.",
-        content: `
-          <p>This is where I keep quick setups. The goal isn’t breadth — it’s to know <em>exactly</em> what I’m waiting for.</p>
-          <ul>
-            <li><strong>TICKER</strong> — setup + KPI + catalyst window</li>
-            <li><strong>TICKER</strong> — setup + KPI + catalyst window</li>
-          </ul>
-        `
-      },
-      {
-        id: "sample-stock-idea",
-        title: "Stock idea example: (TICKER) — variant view + catalysts",
-        date: "2025-11-10",
-        category: "ideas",
-        tags: ["long", "catalyst", "multiple"],
-        featured: false,
-        excerpt: "Replace this with a real name: thesis, why now, and a simple valuation range.",
-        content: `
-          <p><strong>Ticker:</strong> (fill in)</p>
-          <p><strong>Thesis:</strong> (2–3 bullets)</p>
-          <p><strong>Variant view:</strong> what the market believes vs what I believe</p>
-          <p><strong>Why now:</strong> catalysts and timing</p>
-          <p><strong>Valuation:</strong> comps (EV/EBITDA, P/E) + quick DCF sanity check</p>
-          <p><strong>Key risks:</strong> what breaks the idea</p>
-        `
+    async function loadPosts(){
+      // cache-bust so GitHub Pages updates show up quickly
+      const v = String(Date.now());
+      try{
+        const res = await fetch(`posts/index.json?v=${v}`, { cache: "no-store" });
+        if(!res.ok) throw new Error(`Failed to load posts/index.json (${res.status})`);
+        const data = await res.json();
+        if(!Array.isArray(data)) throw new Error("posts/index.json must be an array");
+        // Minimal validation + defaults
+        POSTS = data.map(p => ({
+          id: p.id,
+          title: p.title,
+          date: p.date,
+          category: p.category || "ideas",
+          tags: Array.isArray(p.tags) ? p.tags : [],
+          featured: !!p.featured,
+          excerpt: p.excerpt || "",
+          // content can be inline OR loaded from a file
+          content: p.content || null,
+          contentPath: p.contentPath || null
+        })).filter(p => p.id && p.title && p.date);
+      }catch(err){
+        console.warn("Falling back to empty posts list. Error:", err);
+        POSTS = [];
       }
-    ];
+    }
+
+    async function ensurePostContent(post){
+      // If content is inline, nothing to do.
+      if(post.content) return;
+      if(!post.contentPath) { post.content = `<p style=\"color:var(--muted)\">No content file found for this post.</p>`; return; }
+
+      const v = String(Date.now());
+      try{
+        const res = await fetch(`${post.contentPath}?v=${v}`, { cache: "no-store" });
+        if(!res.ok) throw new Error(`Failed to load ${post.contentPath} (${res.status})`);
+        // Treat as HTML snippet
+        post.content = await res.text();
+      }catch(err){
+        console.warn("Failed to load post content:", err);
+        post.content = `<p style=\"color:var(--muted)\">Could not load this post. Check that <code>${escapeHtml(post.contentPath)}</code> exists in your repo.</p>`;
+      }
+    }
 
     // ====== State ======
     const state = {
@@ -525,10 +457,22 @@ Key risks:</code></pre>
       `;
     }
 
-    function renderArticle(postId){
+    async function renderArticle(postId){
       const p = POSTS.find(x => x.id === postId);
       const main = $("#mainPanel");
       if(!p){ state.view = "feed"; state.activePostId = null; render(); return; }
+
+      // show a quick loading state
+      main.innerHTML = `
+        <div class="article">
+          <div class="back" onclick="goHome()">← Back to posts</div>
+          <h1>${escapeHtml(p.title)}</h1>
+          <div class="meta"><span>Loading…</span></div>
+          <div class="content" style="color:var(--muted); margin-top:12px">Fetching post content…</div>
+        </div>
+      `;
+
+      await ensurePostContent(p);
 
       main.innerHTML = `
         <div class="article">
@@ -546,9 +490,9 @@ Key risks:</code></pre>
       `;
     }
 
-    function render(){
+    async function render(){
       renderFeatured();
-      if(state.view === "article") renderArticle(state.activePostId);
+      if(state.view === "article") await renderArticle(state.activePostId);
       else renderFeed();
       syncChips();
       syncUrl();
@@ -625,7 +569,7 @@ Key risks:</code></pre>
     }
 
     // ====== Init ======
-    function init(){
+    async function init(){
       // set profile text
       $("#siteName").textContent = PROFILE.name;
       $("#footerName").textContent = PROFILE.name;
@@ -650,6 +594,9 @@ Key risks:</code></pre>
 
       // home button
       $("#homeBtn").addEventListener("click", (e) => { e.preventDefault(); goHome(); });
+
+      // load posts manifest from /posts/index.json
+      await loadPosts();
 
       loadFromUrl();
       render();
